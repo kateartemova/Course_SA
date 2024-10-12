@@ -8,16 +8,34 @@ entity "Staging Area" as SA
 entity "Local Repository" as LR
 entity "Remote Repository" as RR
 
+note over of WD
+  Место, где находятся
+  изменённые файлы
+end note
+
 WD -> WD : git status (проверка текущего состояния)
 WD -> WD : git init (создание репозитория)
 RR -> WD : git clone [URL] (клонирование репозитория)
 WD -> SA : git add [файл]
 
+note over of SA
+  Файлы, которые
+  готовы для commit
+end note
 SA -> LR : git commit -m "сообщение"
+
+note over of LR
+  История всех коммитов
+  на вашем компьютере
+end note
 
 LR -> LR : git log
 LR -> RR : git push [удалённый репозиторий] [ветка]
 
+note over of RR
+  Центральное хранилище 
+  проекта на сервере
+end note
 
 RR -> LR : git fetch
 RR -> LR : git pull [удалённый репозиторий] [ветка]
