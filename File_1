@@ -8,6 +8,11 @@ entity "Staging Area" as SA
 entity "Local Repository" as LR
 entity "Remote Repository" as RR
 
+note over of WD
+  Место, где находятся
+  изменённые файлы
+end note
+
 WD -> WD : git status (проверка текущего состояния)
 WD -> WD : git init (создание репозитория)
 RR -> WD : git clone [URL] (клонирование репозитория)
