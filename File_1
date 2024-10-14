@@ -37,3 +37,17 @@ note over of RR
   проекта на сервере
 end note
 
+RR -> LR : git fetch
+RR -> LR : git pull [удалённый репозиторий] [ветка]
+LR -> WD : git checkout [ветка/commit]
+LR -> WD : git merge [ветка]
+LR -> LR : git cherry-pick [commit] (применение изменений из другого коммита)
+LR -> WD : git reset --hard [commit] 
+LR -> SA : git reset [файл]
+WD -> WD : git diff
+LR -> LR : git branch [ветка]
+LR -> WD : git checkout [ветка]
+LR -> RR : git push --set-upstream [удалённый репозиторий] [ветка]
+WD -> LR : git rebase [ветка]
+
+@enduml
